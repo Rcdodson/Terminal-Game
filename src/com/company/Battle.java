@@ -1,8 +1,5 @@
 package com.company;
 
-/**
- * Created by rdodso002c on 7/6/2015.
- */
 public class Battle extends Main{
 
     public static String eType;
