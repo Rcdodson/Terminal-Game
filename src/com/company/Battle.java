@@ -24,45 +24,17 @@ public class Battle extends Main{
     public static void CalculateDamage(int choice,Player player, Level level, Enemy enemy) {
         float locationMultiplier = 1;
         float defenderMultiplier = 1;
-        float totalMultiplier = 1;
+        float totalMultiplier;
         float calcDmg;
-        switch(choice) {
-            //Melee
-            case 1:
-                lType = level.getLevelType();
-                eType = enemy.getType();
-                defenderMultiplier = setDefenderMultiplier(defenderMultiplier, choice);
-                locationMultiplier = setLocationMultiplier(locationMultiplier, choice);
-                totalMultiplier = (defenderMultiplier * locationMultiplier);
-                calcDmg = player.getBaseDamage() * totalMultiplier;
-                enemy.setHealth(enemy.getHealth() - calcDmg);
-                break;
-            //Ranged
-            case 2:
-                lType = level.getLevelType();
-                eType = enemy.getType();
-                defenderMultiplier = setDefenderMultiplier(defenderMultiplier, choice);
-                locationMultiplier = setLocationMultiplier(locationMultiplier, choice);
-                totalMultiplier = (defenderMultiplier * locationMultiplier);
-                calcDmg = player.getBaseDamage() * totalMultiplier;
-                enemy.setHealth(enemy.getHealth() - calcDmg);
-                break;
-            //Stealth
-            case 3:
-                lType = level.getLevelType();
-                eType = enemy.getType();
-                defenderMultiplier = setDefenderMultiplier(defenderMultiplier, choice);
-                locationMultiplier = setLocationMultiplier(locationMultiplier, choice);
-                totalMultiplier = (defenderMultiplier * locationMultiplier);
-                calcDmg = player.getBaseDamage() * totalMultiplier;
-                enemy.setHealth(enemy.getHealth() - calcDmg);
-                break;
-            //auto kill enemy, use for testing only
-            default:
-                enemy.setHealth(enemy.getHealth() - enemy.getHealth());
-                break;
+
+        lType = level.getLevelType();
+        eType = enemy.getType();
+        defenderMultiplier = setDefenderMultiplier(defenderMultiplier, choice);
+        locationMultiplier = setLocationMultiplier(locationMultiplier, choice);
+        totalMultiplier = (defenderMultiplier * locationMultiplier);
+        calcDmg = player.getBaseDamage() * totalMultiplier;
+        enemy.setHealth(enemy.getHealth() - calcDmg);
         }
-    }
 
     public static float setLocationMultiplier(float multiplier, int choice) {
         switch (choice) {
